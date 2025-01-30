@@ -27,6 +27,11 @@ public class RealTimeClient {
         sendCommand(command);
     }
 
+    public void setFloatToRegister(int addr, double value) {
+        String command = "write_output_float_register(" + addr + "," + value + ")";
+        sendCommand(command);
+    }
+
     public void sendCommand(String command) {
         try {
 

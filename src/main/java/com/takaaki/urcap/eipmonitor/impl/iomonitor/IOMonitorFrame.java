@@ -320,6 +320,7 @@ public class IOMonitorFrame extends DialogFrame {
                         }
                     }
 
+                    // This portion handles setting bits
                     if ((mode == MODE_BITS) && (rtdeClientOfBitRegister != null)) {
                         RealTimeClient realTimeClient = new RealTimeClient("127.0.0.1");
 
@@ -333,7 +334,7 @@ public class IOMonitorFrame extends DialogFrame {
                     if ((mode == MODE_INTEGERS) && (rtdeClientOfIntegerRegister != null)) {
                         NumberPadDialog numberPadDialog = new NumberPadDialog(null);
                         numberPadDialog.setVisible(true);
-
+                        
                         String result = numberPadDialog.getResult();
                         if (!result.isEmpty()) {
                             try {
@@ -344,6 +345,24 @@ public class IOMonitorFrame extends DialogFrame {
                             } catch (NumberFormatException e) {
                                 // Handle invalid integer input, maybe show a message to the user
                                 System.out.println("Invalid integer input: " + result);
+                            }
+                        }
+                    }
+
+                    // this portion handles setting float values
+                    if ((mode == MODE_FLOATS) && (rtdeClientOfDoubleRegister != null)) {
+                        NumberPadDialog numberPadDialog = new NumberPadDialog(null);
+                        numberPadDialog.setVisible(true);
+                        String result = numberPadDialog.getResult();
+                        if (!result.isEmpty()) {
+                            try {
+                                // Check if the result is a valid float
+                                float value = Float.parseFloat(result);
+                                RealTimeClient realTimeClient = new RealTimeClient("127.0.0.1");
+                                realTimeClient.setFloatToRegister(index, value);
+                            } catch (NumberFormatException e) {
+                                // Handle invalid float input, maybe show a message to the user
+                                System.out.println("Invalid float input: " + result);
                             }
                         }
                     }
