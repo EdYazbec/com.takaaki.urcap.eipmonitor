@@ -61,7 +61,7 @@ public class IOMonitorFrame extends DialogFrame {
     private final String TITLE = "Ethernet/IP: I/O Monitor";
     private final String BTN_HIDE = "Close";
 
-    private final int FRAME_WIDTH = 660;
+    private final int FRAME_WIDTH = 780;
     private final int FRAME_HEIGHT = 550;
 
     private final int TITLE_WIDTH = 480;
