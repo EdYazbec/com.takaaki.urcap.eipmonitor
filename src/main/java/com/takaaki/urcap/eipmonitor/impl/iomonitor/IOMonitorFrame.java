@@ -68,7 +68,7 @@ public class IOMonitorFrame extends DialogFrame {
     private final int TITLE_HEIGHT = 30;
     private final int TITLEIO_WIDTH = 100;
     private final int TITLEIO_HEIGHT = 14;
-    private final int VALUEIO_WIDTH = 35;
+    private final int VALUEIO_WIDTH = 75;
     private final int VALUEIO_HEIGHT = 14;
     private final int BUTTON_WIDTH = 100;
     private final int BUTTON_HEIGHT = 30;
