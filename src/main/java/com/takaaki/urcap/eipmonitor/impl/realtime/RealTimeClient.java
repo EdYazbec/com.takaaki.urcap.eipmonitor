@@ -22,6 +22,11 @@ public class RealTimeClient {
         sendCommand(command);
     }
 
+    public void setIntegerToRegister(int addr, int value) {
+        String command = "write_output_integer_register(" + addr + ", " + value + ")";
+        sendCommand(command);
+    }
+
     public void sendCommand(String command) {
         try {
 

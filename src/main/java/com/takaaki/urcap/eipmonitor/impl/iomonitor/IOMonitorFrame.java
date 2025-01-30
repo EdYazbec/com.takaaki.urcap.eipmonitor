@@ -23,6 +23,7 @@ import com.takaaki.urcap.eipmonitor.impl.EthernetIPMonitorInstallationNodeContri
 import com.takaaki.urcap.eipmonitor.impl.component.*;
 import com.takaaki.urcap.eipmonitor.impl.converter.TypeConverter;
 import com.takaaki.urcap.eipmonitor.impl.dialog.*;
+import com.takaaki.urcap.eipmonitor.impl.dialog.NumberPadDialog;
 import com.takaaki.urcap.eipmonitor.impl.realtime.RealTimeClient;
 import com.takaaki.urcap.eipmonitor.impl.rtde.*;
 import com.ur.urcap.api.domain.URCapAPI;
@@ -327,6 +328,26 @@ public class IOMonitorFrame extends DialogFrame {
                         else
                             realTimeClient.setBitToRegister(index, true);
                     }
+
+                    // this portion handles setting integer values
+                    if ((mode == MODE_INTEGERS) && (rtdeClientOfIntegerRegister != null)) {
+                        NumberPadDialog numberPadDialog = new NumberPadDialog(null);
+                        numberPadDialog.setVisible(true);
+
+                        String result = numberPadDialog.getResult();
+                        if (!result.isEmpty()) {
+                            try {
+                                // Check if the result is a valid integer
+                                int value = Integer.parseInt(result);
+                                RealTimeClient realTimeClient = new RealTimeClient("127.0.0.1");
+                                realTimeClient.setIntegerToRegister(index, value);
+                            } catch (NumberFormatException e) {
+                                // Handle invalid integer input, maybe show a message to the user
+                                System.out.println("Invalid integer input: " + result);
+                            }
+                        }
+                    }
+
                 }
             });
         }
