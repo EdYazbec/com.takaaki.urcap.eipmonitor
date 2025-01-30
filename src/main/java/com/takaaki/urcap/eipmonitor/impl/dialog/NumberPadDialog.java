@@ -46,22 +46,9 @@ public class NumberPadDialog extends JDialog {
         addButton(buttonPanel, "1", display);
         addButton(buttonPanel, "2", display);
         addButton(buttonPanel, "3", display);
-
-        // Add decimal button
-        JButton decimalButton = new JButton(".");
-        decimalButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!hasDecimal) {  // Allow only one decimal point
-                    currentValue.append(".");
-                    display.setText(currentValue.toString());
-                    hasDecimal = true;
-                }
-            }
-        });
-        buttonPanel.add(decimalButton);
         
-        // Add Backspace, 0, and +- buttons
+        // Add decimal, 0, +-, and +- toggle buttons
+        addButton(buttonPanel, ".", display);
         addButton(buttonPanel, "0", display);
         addToggleSignButton(buttonPanel, display);
         addBackspaceButton(buttonPanel, display);

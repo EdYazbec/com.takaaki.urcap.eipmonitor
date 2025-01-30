@@ -343,7 +343,7 @@ public class IOMonitorFrame extends DialogFrame {
                                 RealTimeClient realTimeClient = new RealTimeClient("127.0.0.1");
                                 realTimeClient.setIntegerToRegister(index, value);
                             } catch (NumberFormatException e) {
-                                // Handle invalid integer input, maybe show a message to the user
+                                // Handle invalid integer input
                                 System.out.println("Invalid integer input: " + result);
                             }
                         }
@@ -361,7 +361,7 @@ public class IOMonitorFrame extends DialogFrame {
                                 RealTimeClient realTimeClient = new RealTimeClient("127.0.0.1");
                                 realTimeClient.setFloatToRegister(index, value);
                             } catch (NumberFormatException e) {
-                                // Handle invalid float input, maybe show a message to the user
+                                // Handle invalid float input
                                 System.out.println("Invalid float input: " + result);
                             }
                         }
